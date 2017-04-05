@@ -10,32 +10,32 @@ INCLUDE Irvine32.inc
 .code
 main PROC
 
-mn:								; N=0 ¥[±K ¡AN=1 ¸Ñ±K
-	mov ecx,LENGTHOF buffer		; ecx = bufferªºªø«×
-	mov esi,0					; init
-	mov ebx,0					; init
+mn:					; N=0 åŠ å¯† ï¼ŒN=1 è§£å¯†
+	mov ecx,LENGTHOF buffer		; ecx = bufferçš„é•·åº¦
+	mov esi,0			; init
+	mov ebx,0			; init
 L1:								
-	mov al,kyword[ebx]			; read key
-	xor buffer[esi],al			; xor
-	inc esi						; esi ++
-	inc ebx						; ebx ++
-	cmp ebx,LENGTHOF kyword		; if ebx > keyªºªø«×
-	jae L1_1					; then L1_1
+	mov al,kyword[ebx]		; read key
+	xor buffer[esi],al		; xor
+	inc esi				; esi ++
+	inc ebx				; ebx ++
+	cmp ebx,LENGTHOF kyword		; if ebx > keyçš„é•·åº¦
+	jae L1_1			; then L1_1
 L1_0:
-	loop L1						; LOOP
-	jmp next					; end
+	loop L1				; LOOP
+	jmp next			; end
 
-L1_1:							;
-	mov ebx,0					; ebx = 0
-	jmp L1_0					; goback
+L1_1:					;
+	mov ebx,0			; ebx = 0
+	jmp L1_0			; goback
 
-next:							;
+next:					;
 	mov edx,offset buffer		; print("%s", buffer)
-	call writestring			; call module
-	call  Crlf					; print("\n")
-	inc N						; N ++
-	cmp N,2						; if N < 2
-	jb mn						; again
+	call writestring		; call module
+	call  Crlf			; print("\n")
+	inc N				; N ++
+	cmp N,2				; if N < 2
+	jb mn				; again
 exit
 main ENDP
 END main
