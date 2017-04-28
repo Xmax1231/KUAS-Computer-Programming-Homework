@@ -9,7 +9,6 @@ INCLUDE Irvine32.inc
 
 .code
 main PROC
-
 mn:					; N=0 加密 ，N=1 解密
 	mov ecx,LENGTHOF buffer		; ecx = buffer的長度
 	mov esi,0			; init
