@@ -4,21 +4,21 @@ INCLUDE Irvine32.inc
 .data
     @tt byte "Fahrenheit: ",0
     @dot byte ".",0
-	@Fahrenheit dword ?
+    @Fahrenheit dword ?
 .code
 main PROC
     push OFFSET @tt
-	call ReadNum
-	mov @Fahrenheit,eax
+    call ReadNum
+    mov @Fahrenheit,eax
 
     push OFFSET @dot     ;[ebp+12]
-	push @Fahrenheit	 ;[ebp+8]
-	call Writesurface    ;[ebp+4] return address
-	exit
+    push @Fahrenheit     ;[ebp+8]
+    call Writesurface    ;[ebp+4] return address
+    exit
 main ENDP
 
 ReadNum PROC
-	push ebp
+    push ebp
     mov ebp,esp
 
     mov esi,0
@@ -35,7 +35,7 @@ ReadNum PROC
 ReadNum ENDP
 
 Writesurface PROC
-	push ebp        ;[ebp+0]
+    push ebp              ;[ebp+0]
     mov ebp,esp
 
     mov esi,0
