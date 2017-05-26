@@ -69,7 +69,7 @@ Writesurface PROC
     inc esi
     cmp esi,15
     jg @break
-    cmp eax,0
+    test eax,eax
     jnz @1
 
 @break:
