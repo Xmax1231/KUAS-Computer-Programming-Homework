@@ -8,12 +8,12 @@ main PROC
     push offset arr2        ;ebp+16
     push offset arr1        ;ebp+12
     push lengthof arr1      ;ebp+8
-    call F1                 ;ebp+4 (return address)
+    call CountMatches       ;ebp+4 (return address)
     call WriteDec
     exit
 main ENDP
 
-F1 PROC
+CountMatches PROC
     push ebp                ;ebp+0
     mov ebp,esp
 
@@ -35,6 +35,6 @@ F1 PROC
 
     pop ebp
     ret 12
-F1 ENDP
+CountMatches ENDP
 
 END main
